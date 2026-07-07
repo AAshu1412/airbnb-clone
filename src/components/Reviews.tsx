@@ -104,7 +104,7 @@ export function Reviews() {
             aria-hidden
             priority
           />
-          <span className="text-[64px] font-semibold leading-none tracking-tight">
+          <span className="text-[90px] font-semibold leading-none tracking-tight">
             {listing.rating}
           </span>
           <Image
