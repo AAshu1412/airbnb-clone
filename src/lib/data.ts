@@ -259,8 +259,12 @@ export const similarListings: {
   price: string;
   rating: number;
 }[] = [
-  { src: "/photos/bedroom.png", title: "Serviced apartment in Candolim", price: "₹6,120 night", rating: 4.9 },
-  { src: "/photos/living.png", title: "Serviced apartment in Calangute", price: "₹5,480 night", rating: 4.88 },
-  { src: "/photos/jacuzzi.png", title: "Villa in Anjuna", price: "₹9,200 night", rating: 4.97 },
-  { src: "/photos/lounge.png", title: "Serviced apartment in Baga", price: "₹7,340 night", rating: 4.92 },
+  { src: "/more-stays/01.png", title: "Beautiful Studio with a view to die for", price: "₹23,600", rating: 4.91 },
+  { src: "/more-stays/02.png", title: "NAQAB - 1bhk with private pool", price: "₹42,218", rating: 4.95 },
+  { src: "/more-stays/03.png", title: "Greentique Luxury Flat with plunge pool, Calangute", price: "₹44,506", rating: 4.94 },
+  { src: "/more-stays/04.png", title: "The Tropical Studio | 5 mins to Beach", price: "₹22,824", rating: 4.96 },
+  { src: "/more-stays/05.png", title: "Luxury Casa Bella 1BHK with plunge pool, Calangute", price: "₹39,942", rating: 4.95 },
+  { src: "/more-stays/06.png", title: "Kanso by Earthen Window | Jacuzzi | Terrace | Pool", price: "₹45,648", rating: 5.0 },
+  { src: "/more-stays/07.png", title: "Luxury Apt | Private Pool | 6 Mins from Beach", price: "₹48,786", rating: 4.93 },
+  { src: "/more-stays/08.png", title: "Serendipity Cottage - Calm Stay in Calangute-Baga.", price: "₹22,824", rating: 4.92 },
 ];
