@@ -190,6 +190,8 @@ export const reviewCategories: { label: string; icon: string; score: number }[] 
 export type Review = {
   name: string;
   avatarColor: string;
+  /** optional avatar photo; when absent, the coloured initial is shown */
+  avatar?: string;
   meta: string;
   rating: number;
   date: string;
@@ -198,52 +200,56 @@ export type Review = {
 
 export const reviews: Review[] = [
   {
-    name: "Aarav",
+    name: "Amit",
     avatarColor: "#c1846d",
+    meta: "2 months on Airbnb",
+    rating: 5,
+    date: "1 week ago",
+    body: "Very helpful and responsive team. Safe and peaceful stay. loved everything about the property.",
+  },
+  {
+    name: "Aheesh",
+    avatarColor: "#6d8fc1",
+    avatar: "/cohost/Sharath.png",
     meta: "3 years on Airbnb",
     rating: 5,
-    date: "August 2026",
-    body: "Amazing place with a lovely jacuzzi. Super clean and exactly as pictured. Aarav was a great host and very responsive.",
+    date: "2 weeks ago",
+    body: "We had a wonderful stay. The apartment was clean, comfortable, and exactly as shown in the photos. The host was very responsive and helpful throughout our stay. We would definitely recommend this place and would love to stay here again.",
   },
   {
-    name: "Priya",
-    avatarColor: "#6d8fc1",
+    name: "Samiksha",
+    avatarColor: "#8d6dc1",
+    avatar: "/cohost/Sanyukta.png",
+    meta: "8 months on Airbnb",
+    rating: 5,
+    date: "May 2026",
+    body: "the host nitish was really great help",
+  },
+  {
+    name: "Vedant",
+    avatarColor: "#8d6dc1",
+    meta: "4 years on Airbnb",
+    rating: 5,
+    date: "May 2026",
+    body: "We had an amazing stay at this property in Goa! The entire home was spotless and exceptionally well-maintained, making us feel comfortable from the moment we arrived. The cleanliness standards were truly impressive, with every corner of the house looking fresh and pristine. The host was warm, welcoming and quick to respond to every request.",
+  },
+  {
+    name: "Vaibhav S",
+    avatarColor: "#c16d9e",
+    avatar: "/cohost/Maria-Karen-Priyanka.png",
+    meta: "3 years on Airbnb",
+    rating: 5,
+    date: "May 2026",
+    body: "Great great experience living out there , can't expect more , will always look for it in the future and will recommend my friends too.",
+  },
+  {
+    name: "Mohd",
+    avatarColor: "#6dc19e",
+    avatar: "/cohost/Aman-Dev-Pahwa.png",
     meta: "5 years on Airbnb",
     rating: 5,
-    date: "August 2026",
-    body: "Absolutely stunning apartment, the private jacuzzi made our anniversary trip so special. The pool and gym were a bonus. Would definitely stay again when we are back in Goa.",
-  },
-  {
-    name: "Meredith",
-    avatarColor: "#8d6dc1",
-    meta: "Somerville, Massachusetts",
-    rating: 5,
-    date: "July 2026",
-    body: "Beautiful and comfortable stay in a great location.",
-  },
-  {
-    name: "David",
-    avatarColor: "#c16d9e",
-    meta: "Chicago, Illinois",
-    rating: 5,
-    date: "July 2026",
-    body: "The apartment was spotless and the host went above and beyond to make sure our check-in was smooth. Highly recommend for anyone visiting Candolim — you are close to everything but it still feels private and quiet.",
-  },
-  {
-    name: "Kavya",
-    avatarColor: "#6dc19e",
-    meta: "Bengaluru, India",
-    rating: 5,
-    date: "June 2026",
-    body: "Loved the interiors and the jacuzzi. Great value for the price and the neighbourhood is lovely.",
-  },
-  {
-    name: "Rahul",
-    avatarColor: "#c1a96d",
-    meta: "Mumbai, India",
-    rating: 5,
-    date: "June 2026",
-    body: "The whole booking was seamless and the flat is even nicer in person.",
+    date: "May 2026",
+    body: "Great place. Exactly as described in the listing.",
   },
 ];
 
