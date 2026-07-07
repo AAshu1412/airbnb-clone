@@ -47,9 +47,9 @@
 
 ---
 
-## Prompt 8 — Production Architecture Diagram
+## Prompt 8 — Production Optimization & Build Validation
 
-> Create a high-level architecture diagram for a production-scale vacation rental marketplace covering: Clients (Web, iOS/Android, Host Dashboard), Edge & Delivery (Global CDN, Image CDN, Edge Middleware, API Gateway), Backend Microservices (Listing, Search, Booking, Pricing, Payments, Reviews, Messaging — stateless, autoscaled on k8s), Storage (PostgreSQL sharded + Redis + S3), Search & Discovery (Elasticsearch, Geo Index, ML Ranking), Async Pipeline (Kafka, Workers, Data Lake + BI), and Cross-Cutting (CI/CD, Observability, Security, Multi-region, IaC). Highlight the frontend + edge tier that this clone implements.
+> Run a project-wide audit for accessibility, key/aria attributes, and proper focus containment on the lightbox and booking card overlays. Ensure the Next.js static production build runs cleanly with zero linting or unused import warnings, and verify the scroll-lock behavior locks body scroll correctly across all modals.
 
 ---
 
