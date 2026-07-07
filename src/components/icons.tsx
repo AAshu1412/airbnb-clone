@@ -337,6 +337,129 @@ export const Icon = {
       <circle cx="10.5" cy="10.5" r="1.6" fill="#128a3f" />
     </svg>
   ),
+
+  Pet: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M16 26c2.5 0 4.5-2 4.5-4.5S18.5 17 16 17s-4.5 2-4.5 4.5S13.5 26 16 26z" />
+      <circle cx="8" cy="12" r="2" />
+      <circle cx="13" cy="7" r="2" />
+      <circle cx="19" cy="7" r="2" />
+      <circle cx="24" cy="12" r="2" />
+    </svg>
+  ),
+
+  Smoke: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <circle cx="16" cy="16" r="12" />
+      <circle cx="16" cy="16" r="6" />
+      <path d="M16 4v4M16 24v4M4 16h4M24 16h4" />
+    </svg>
+  ),
+
+  Carbon: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <rect x="4" y="6" width="24" height="20" rx="3" />
+      <path d="M9 13h14M9 16h14M9 19h14" />
+    </svg>
+  ),
+
+  Hairdryer: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M12 18l-2 8M6 8h12a6 6 0 0 1 6 6v0a6 6 0 0 1-6 6H8M6 8V6a2 2 0 0 1 2-2h4v4M8 20v4" />
+    </svg>
+  ),
+
+  CleaningProducts: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M12 10V6h2v4M10 6h6M8 10h12v16H8V10zm2-4l-2 2M16 6l2-2" />
+    </svg>
+  ),
+
+  Shampoo: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <rect x="9" y="8" width="14" height="20" rx="3" />
+      <path d="M12 8V4h8v4" />
+    </svg>
+  ),
+
+  HotWater: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M10 8h12M16 8v10M13 22a1 1 0 0 1 0-2 1 1 0 0 1 0 2zm6 2a1 1 0 0 1 0-2 1 1 0 0 1 0 2zM10 4h12" />
+    </svg>
+  ),
+
+  ShowerGel: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <rect x="10" y="10" width="12" height="18" rx="2" />
+      <path d="M16 10V6M16 6h-3M16 6h4" />
+    </svg>
+  ),
+
+  Hanger: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M16 4a3 3 0 0 1 3 3v1M6 22L16 12l10 10H6z" />
+    </svg>
+  ),
+
+  Linen: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <rect x="4" y="8" width="24" height="16" rx="2" />
+      <path d="M4 14h24M10 8v6M20 8v6" />
+    </svg>
+  ),
+
+  Blinds: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <rect x="4" y="4" width="24" height="24" rx="2" />
+      <path d="M4 10h24M4 16h24M4 22h24" />
+    </svg>
+  ),
+
+  Iron: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M6 20h20M6 20a6 6 0 0 1 6-6h12a2 2 0 0 1 2 2v4M12 14V8h6" />
+    </svg>
+  ),
+
+  Wardrobe: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <rect x="6" y="4" width="20" height="24" rx="2" />
+      <path d="M16 4v24M13 14h2M17 14h2" />
+    </svg>
+  ),
+
+  Balloon: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M16 6a6 6 0 0 1 6 6c0 4-3 7-6 10-3-3-6-6-6-10a6 6 0 0 1 6-6z" />
+      <path d="M16 22l-1 2-1-1v3" />
+    </svg>
+  ),
+
+  Education: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M6 12v6a4 4 0 0 0 8 0v-6M2 10l10-5 10 5-10 5L2 10z" />
+      <path d="M17 12.5v5" />
+    </svg>
+  ),
+
+  Calendar: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <rect x="4" y="6" width="24" height="20" rx="3" />
+      <path d="M9 4v4M23 4v4M4 11h24M8 15h2M14 15h2M20 15h2M8 20h2M14 20h2M20 20h2" />
+    </svg>
+  ),
+
+  Shield: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M16 4s7 2 7 6v8c0 5.5-4.5 10-7 10s-7-4.5-7-10v-8c0-4 7-6 7-6z" />
+    </svg>
+  ),
+
+  Flag: ({ size = 24, ...p }: IconProps) => (
+    <svg {...base(size)} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" />
+    </svg>
+  ),
 };
 
 export type IconName = keyof typeof Icon;

@@ -2,7 +2,7 @@ import { Icon } from "./icons";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-30 hidden border-b border-abb-border-light bg-white md:block">
+    <header className="relative z-30 hidden border-b border-abb-border-light bg-white md:block">
       <div className="mx-auto flex h-20 max-w-[2032px] items-center justify-between px-10 lg:px-20 xl:px-20">
         {/* Logo */}
         <a href="/" className="flex shrink-0 items-center gap-2 text-abb-rausch" aria-label="Airbnb homepage">

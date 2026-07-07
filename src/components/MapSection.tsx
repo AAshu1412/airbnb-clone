@@ -3,7 +3,7 @@ import { Icon } from "./icons";
 /** Stylized Airbnb-like map with beach (water) on the left and park blobs. */
 export function MapSection() {
   return (
-    <section className="border-b border-abb-border-light py-12">
+    <section id="location" className="border-b border-abb-border-light py-12">
       <h2 className="text-[22px] font-semibold text-abb-fg">Where you&apos;ll be</h2>
       <p className="mt-1 text-sm text-abb-muted">Candolim, Goa, India</p>
 
@@ -40,16 +40,20 @@ export function MapSection() {
         </div>
       </div>
 
-      <p className="mt-6 text-[15px] leading-6 text-abb-fg">
-        Candolim, Goa, India
+      <p className="mt-3 text-[15px] leading-6 text-abb-fg">
+        Exact location will be provided after booking.
       </p>
-      <p className="mt-2 max-w-3xl text-[15px] leading-6 text-abb-muted">
-        Candolim is a relaxed North Goa neighbourhood known for its long sandy
-        beach, beach shacks, and easy access to Calangute and Fort Aguada. Cafes,
-        restaurants, and nightlife are all a short drive away.
+      <p className="mt-6 text-[18px] font-semibold leading-6">
+Neighbourhood highlights      </p>
+      <p className="mt-2  text-[15px] leading-6 font-medium">
+        Located in the heart of Candolim, Amor de Goa offers a peaceful stay with easy access to beaches, cafés, and popular attractions.
       </p>
-      <button className="mt-4 text-[15px] font-semibold text-abb-fg underline">
-        Show more
+      <button className="mt-4 text-[15px] font-semibold text-abb-fg underline flex items-center gap-1">
+       Show more{" "}
+                <Icon.ChevronRight
+                  size={12}
+                  className={`transition-transform duration-200`}
+                />
       </button>
     </section>
   );

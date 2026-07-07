@@ -1,5 +1,9 @@
+"use client";
+
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Header } from "@/components/Header";
+import { StickyHeader } from "@/components/StickyHeader";
 import { Footer } from "@/components/Footer";
 import { GalleryProvider } from "@/components/gallery/GalleryProvider";
 import { Gallery } from "@/components/gallery/Gallery";
@@ -9,14 +13,32 @@ import { Calendar } from "@/components/Calendar";
 import { Reviews } from "@/components/Reviews";
 import { MapSection } from "@/components/MapSection";
 import { HostSection } from "@/components/HostSection";
+import { ThingsToKnow } from "@/components/ThingsToKnow";
 import { SimilarListings } from "@/components/SimilarListings";
 import { Icon } from "@/components/icons";
 import { listing, photos } from "@/lib/data";
 
 export default function Home() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [showStickyHeader, setShowStickyHeader] = useState(false);
+  const galleryRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (galleryRef.current) {
+        const rect = galleryRef.current.getBoundingClientRect();
+        setShowStickyHeader(rect.bottom <= 0);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <GalleryProvider>
       <Header />
+      <StickyHeader show={showStickyHeader} />
 
       <main className="mx-auto max-w-[1120px] px-6 pb-16 lg:px-10">
         {/* Title row */}
@@ -36,7 +58,9 @@ export default function Home() {
           </div>
         </div>
 
-        <Gallery />
+        <div id="photos" ref={galleryRef}>
+          <Gallery />
+        </div>
 
         {/* Two-column: content + sticky booking card */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_372px] lg:gap-x-20">
@@ -133,11 +157,26 @@ export default function Home() {
 
             {/* Description */}
             <section className="border-b border-abb-border-light py-8">
-              <p className="text-[15px] leading-6 text-abb-fg line-clamp-4">
-                {listing.description}
-              </p>
-              <button className="mt-4 flex items-center gap-1 text-[15px] font-semibold text-abb-fg underline">
-                Show more <Icon.ChevronRight size={12} />
+              <div className="mb-6 rounded-xl bg-neutral-50 px-4 py-3 text-[15px] text-abb-fg border border-neutral-100">
+                Some info has been automatically translated. <button className="font-semibold underline cursor-pointer hover:text-neutral-700">Show original</button>
+              </div>
+              <div className="relative">
+                <p className={`text-[15px] leading-6 text-abb-fg ${isExpanded ? "" : "max-h-[96px] overflow-hidden"}`}>
+                  {listing.description}
+                </p>
+                {!isExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
+                )}
+              </div>
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="mt-4 flex items-center gap-1 text-[15px] font-semibold text-abb-fg underline cursor-pointer hover:text-neutral-700"
+              >
+                {isExpanded ? "Show less" : "Show more"}{" "}
+                <Icon.ChevronRight
+                  size={12}
+                  className={`transition-transform duration-200 ${isExpanded ? "-rotate-90" : ""}`}
+                />
               </button>
             </section>
 
@@ -185,6 +224,7 @@ export default function Home() {
         <Reviews />
         <MapSection />
         <HostSection />
+        <ThingsToKnow />
         <SimilarListings />
       </main>
 

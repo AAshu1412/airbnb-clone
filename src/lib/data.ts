@@ -85,7 +85,7 @@ export const listing = {
     },
   ],
   description:
-    "Offer this luxurious serviced 1 BHK apartment with a private jacuzzi in Candolim, Goa. Wake up to a romantic setting, unwind in the outdoor lounge, and enjoy resort-style amenities including a shared pool and gym. Perfectly located minutes from Candolim and Calangute beaches, cafes, and nightlife — ideal for couples and small families looking for a stylish, comfortable stay.",
+    "🌴 Plan Your Relaxing Holiday at Amor De Goa by Mirashya Homes! ✨ Stay in this cozy 1BHK in the heart of Candolim, featuring a private jacuzzi 🛁 for the perfect unwind. Enjoy high-speed WiFi 💻, Smart TV 📺, pet-friendly comfort 🐾, and stylish interiors. Just minutes from Candolim Beach 🏖️, popular cafés, restaurants, and nightlife 🍹, it’s ideal for couples seeking romance, relaxation, and a touch of luxury in North Goa. ❤️🌴",
   price: {
     total: "₹28,499",
     nights: 5,
@@ -96,19 +96,86 @@ export const listing = {
   },
 };
 
-export const amenities: { icon: string; label: string; unavailable?: boolean }[] = [
-  { icon: "pool", label: "Pool" },
-  { icon: "wifi", label: "Wifi" },
-  { icon: "kitchen", label: "Kitchen" },
-  { icon: "washer", label: "Free washer – In building" },
-  { icon: "tv", label: "TV" },
-  { icon: "ac", label: "Air conditioning" },
-  { icon: "gym", label: "Shared gym in building" },
-  { icon: "parking", label: "Free parking on premises" },
-  { icon: "workspace", label: "Dedicated workspace" },
-  { icon: "hottub", label: "Private hot tub" },
-  { icon: "elevator", label: "Elevator" },
-  { icon: "cctv", label: "Security cameras on property", unavailable: false },
+export type Amenity = {
+  icon: string;
+  label: string;
+  category: string;
+  unavailable?: boolean;
+};
+
+export const amenities: Amenity[] = [
+  // First 10 preview items (ordered exactly to form the 2-column preview in pic2)
+  { icon: "kitchen", label: "Kitchen", category: "Kitchen and dining" },
+  { icon: "wifi", label: "Wifi", category: "Internet and office" },
+  { icon: "workspace", label: "Dedicated workspace", category: "Internet and office" },
+  { icon: "parking", label: "Free parking on premises", category: "Parking and facilities" },
+  { icon: "pool", label: "Pool", category: "Parking and facilities" },
+  { icon: "hottub", label: "Hot tub", category: "Parking and facilities" },
+  { icon: "pet", label: "Pets allowed", category: "Services" },
+  { icon: "cctv", label: "Exterior security cameras on property", category: "Home safety" },
+  { icon: "carbon", label: "Carbon monoxide alarm", category: "Home safety", unavailable: true },
+  { icon: "smoke", label: "Smoke alarm", category: "Home safety", unavailable: true },
+
+  // Remaining 40 items grouped logically by category for the modal (pic3)
+  // Bathroom
+  { icon: "hairdryer", label: "Hairdryer", category: "Bathroom" },
+  { icon: "cleaning", label: "Cleaning products", category: "Bathroom" },
+  { icon: "shampoo", label: "Shampoo", category: "Bathroom" },
+  { icon: "hotwater", label: "Hot water", category: "Bathroom" },
+  { icon: "showergel", label: "Shower gel", category: "Bathroom" },
+
+  // Bedroom and laundry
+  { icon: "washer", label: "Washing machine", category: "Bedroom and laundry" },
+  { icon: "hanger", label: "Hangers", category: "Bedroom and laundry" },
+  { icon: "linen", label: "Bed linen", category: "Bedroom and laundry" },
+  { icon: "blinds", label: "Room-darkening blinds", category: "Bedroom and laundry" },
+  { icon: "iron", label: "Iron", category: "Bedroom and laundry" },
+  { icon: "wardrobe", label: "Clothes storage", category: "Bedroom and laundry" },
+
+  // Entertainment
+  { icon: "tv", label: "TV", category: "Entertainment" },
+  { icon: "book", label: "Books and reading material", category: "Entertainment" },
+
+  // Heating and cooling
+  { icon: "ac", label: "Air conditioning", category: "Heating and cooling" },
+  { icon: "fan", label: "Ceiling fan", category: "Heating and cooling" },
+
+  // Home safety
+  { icon: "fire", label: "Fire extinguisher", category: "Home safety" },
+
+  // Kitchen and dining
+  { icon: "fridge", label: "Refrigerator", category: "Kitchen and dining" },
+  { icon: "microwave", label: "Microwave", category: "Kitchen and dining" },
+  { icon: "pot", label: "Cooking basics (pots and pans, oil, salt and pepper)", category: "Kitchen and dining" },
+  { icon: "dishes", label: "Dishes and silverware (bowls, chopsticks, plates, cups, etc.)", category: "Kitchen and dining" },
+  { icon: "stove", label: "Stove", category: "Kitchen and dining" },
+  { icon: "oven", label: "Oven", category: "Kitchen and dining" },
+  { icon: "kettle", label: "Hot water kettle", category: "Kitchen and dining" },
+  { icon: "glass", label: "Wine glasses", category: "Kitchen and dining" },
+  { icon: "table", label: "Dining table", category: "Kitchen and dining" },
+
+  // Location features
+  { icon: "water", label: "Waterfront", category: "Location features" },
+  { icon: "beach", label: "Beach access", category: "Location features" },
+
+  // Outdoor
+  { icon: "patio", label: "Patio or balcony", category: "Outdoor" },
+  { icon: "backyard", label: "Backyard", category: "Outdoor" },
+  { icon: "outdoor", label: "Outdoor dining area", category: "Outdoor" },
+  { icon: "bbq", label: "BBQ grill", category: "Outdoor" },
+
+  // Parking and facilities
+  { icon: "gym", label: "Shared gym in building", category: "Parking and facilities" },
+  { icon: "elevator", label: "Elevator", category: "Parking and facilities" },
+  { icon: "home", label: "Single level home", category: "Parking and facilities" },
+
+  // Services
+  { icon: "luggage", label: "Luggage drop-off allowed", category: "Services" },
+  { icon: "calendar", label: "Long-term stays allowed", category: "Services" },
+  { icon: "key", label: "Self check-in", category: "Services" },
+  { icon: "staff", label: "Building staff", category: "Services" },
+  { icon: "broom", label: "Cleaning before checkout", category: "Services" },
+  { icon: "breakfast", label: "Breakfast", category: "Services" },
 ];
 
 export const reviewCategories: { label: string; icon: string; score: number }[] = [

@@ -61,7 +61,7 @@ export function Reviews() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="border-b border-abb-border-light py-12">
+    <section id="reviews" className="border-b border-abb-border-light py-12">
       {/* Guest favourite banner */}
       <div className="flex flex-col items-center py-6 text-center">
         <div className="flex items-center justify-center gap-2 text-abb-fg">
@@ -76,10 +76,15 @@ export function Reviews() {
         <h2 className="mt-4 text-2xl font-semibold text-abb-fg">
           Guest favourite
         </h2>
-        <p className="mt-2 max-w-sm text-[15px] leading-5 text-abb-muted">
-          One of the most loved homes on Airbnb based on ratings, reviews, and
-          reliability
+        <p className="mt-2 max-w-[340px] text-[15px] leading-5 text-abb-muted">
+          This home is a guest favourite based on ratings, reviews and reliability
         </p>
+        <a
+          href="#"
+          className="mt-2 text-[14px] font-semibold text-abb-fg underline underline-offset-2 hover:text-black"
+        >
+          How reviews work
+        </a>
       </div>
 
       {/* Category strip */}
@@ -105,7 +110,7 @@ export function Reviews() {
           return (
             <div
               key={cat.label}
-              className="flex flex-col gap-1.5 px-4 py-3 md:items-center md:py-0 md:text-center"
+              className="flex flex-col gap-1.5 px-4 py-3 md:items-start md:py-0 md:text-start"
             >
               <p className="text-[13px] font-medium text-abb-fg">{cat.label}</p>
               <p className="text-[15px] font-semibold text-abb-fg">
@@ -117,6 +122,32 @@ export function Reviews() {
             </div>
           );
         })}
+      </div>
+
+      {/* Horizontal scroll filters */}
+      <div className="mt-8 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex gap-3 px-1">
+          {[
+            { label: "Comfort", count: 6, icon: "🛋️" },
+            { label: "Accuracy", count: 5, icon: "✅" },
+            { label: "Hot tub", count: 5, icon: "♨️" },
+            { label: "Condition", count: 4, icon: "📅" },
+            { label: "Hospitality", count: 8, icon: "🎁" },
+            { label: "Cleanliness", count: 4, icon: "🧼" },
+            { label: "Amenities", count: 2, icon: "📦" },
+            { label: "Value", count: 2, icon: "🏷️" },
+            { label: "Location", count: 2, icon: "📍" },
+          ].map((filter) => (
+            <button
+              key={filter.label}
+              className="flex shrink-0 items-center gap-2 rounded-full border border-neutral-200 bg-white px-3.5 py-2 text-[13px] font-semibold text-abb-fg hover:border-black transition-colors cursor-pointer"
+            >
+              <span>{filter.icon}</span>
+              <span>{filter.label}</span>
+              <span className="text-neutral-500 font-normal">{filter.count}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Reviews grid */}

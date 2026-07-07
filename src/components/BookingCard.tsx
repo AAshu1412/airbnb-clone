@@ -70,6 +70,11 @@ export function BookingCard() {
           You won&apos;t be charged yet
         </p>
       </div>
+
+      <button className="mt-6 flex items-center justify-center gap-2 text-sm text-[#717171] hover:text-black transition-colors mx-auto underline cursor-pointer">
+        <Icon.Flag size={14} />
+        <span>Report this listing</span>
+      </button>
     </div>
   );
 }

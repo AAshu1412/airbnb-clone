@@ -5,8 +5,8 @@ import { Icon } from "./icons";
 export function SimilarListings() {
   return (
     <section className="py-12">
-      <h2 className="mb-6 text-[22px] font-semibold text-abb-fg">
-        Explore other options in and around Candolim
+      <h2 className="mb-6 text-[22px] font-medium text-abb-fg">
+          More stays nearby
       </h2>
       <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
         {similarListings.map((item) => (
