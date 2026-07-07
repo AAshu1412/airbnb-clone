@@ -111,25 +111,195 @@ export function PhotoTour({
                     <p className="mt-1 text-sm text-abb-muted">{room.caption}</p>
                   )}
                 </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  {room.photos.map((photo, i) => (
+                <div className="flex flex-col gap-4">
+                  {room.photos.length === 1 && (
                     <button
-                      key={photo.src}
-                      onClick={() => onOpenPhoto(indexOf(photo.src))}
-                      className={`group relative aspect-[3/2] overflow-hidden rounded-xl ${
-                        room.photos.length === 1 ? "sm:col-span-2" : ""
-                      }`}
-                      aria-label={`Open ${photo.alt}`}
+                      onClick={() => onOpenPhoto(indexOf(room.photos[0].src))}
+                      className="group relative aspect-[3/2] w-full overflow-hidden rounded-xl"
+                      aria-label={`Open ${room.photos[0].alt}`}
                     >
                       <Image
-                        src={photo.src}
-                        alt={photo.alt}
+                        src={room.photos[0].src}
+                        alt={room.photos[0].alt}
                         fill
                         sizes="(max-width: 768px) 100vw, 700px"
                         className="abb-photo object-cover"
                       />
                     </button>
-                  ))}
+                  )}
+
+                  {room.photos.length === 2 && (
+                    <div className="grid grid-cols-2 gap-4">
+                      {room.photos.map((photo) => (
+                        <button
+                          key={photo.src}
+                          onClick={() => onOpenPhoto(indexOf(photo.src))}
+                          className="group relative aspect-[3/2] overflow-hidden rounded-xl"
+                          aria-label={`Open ${photo.alt}`}
+                        >
+                          <Image
+                            src={photo.src}
+                            alt={photo.alt}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 700px"
+                            className="abb-photo object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  {room.photos.length === 3 && (
+                    <>
+                      <button
+                        onClick={() => onOpenPhoto(indexOf(room.photos[0].src))}
+                        className="group relative aspect-[3/2] w-full overflow-hidden rounded-xl"
+                        aria-label={`Open ${room.photos[0].alt}`}
+                      >
+                        <Image
+                          src={room.photos[0].src}
+                          alt={room.photos[0].alt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 700px"
+                          className="abb-photo object-cover"
+                        />
+                      </button>
+                      <div className="grid grid-cols-2 gap-4">
+                        {room.photos.slice(1).map((photo) => (
+                          <button
+                            key={photo.src}
+                            onClick={() => onOpenPhoto(indexOf(photo.src))}
+                            className="group relative aspect-[3/2] overflow-hidden rounded-xl"
+                            aria-label={`Open ${photo.alt}`}
+                          >
+                            <Image
+                              src={photo.src}
+                              alt={photo.alt}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 700px"
+                              className="abb-photo object-cover"
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  {room.photos.length === 4 && (
+                    <div className="grid grid-cols-2 gap-4">
+                      {room.photos.map((photo) => (
+                        <button
+                          key={photo.src}
+                          onClick={() => onOpenPhoto(indexOf(photo.src))}
+                          className="group relative aspect-[3/2] overflow-hidden rounded-xl"
+                          aria-label={`Open ${photo.alt}`}
+                        >
+                          <Image
+                            src={photo.src}
+                            alt={photo.alt}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 700px"
+                            className="abb-photo object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  {room.photos.length === 5 && (
+                    <>
+                      <button
+                        onClick={() => onOpenPhoto(indexOf(room.photos[0].src))}
+                        className="group relative aspect-[3/2] w-full overflow-hidden rounded-xl"
+                        aria-label={`Open ${room.photos[0].alt}`}
+                      >
+                        <Image
+                          src={room.photos[0].src}
+                          alt={room.photos[0].alt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 700px"
+                          className="abb-photo object-cover"
+                        />
+                      </button>
+                      <div className="grid grid-cols-2 gap-4">
+                        {room.photos.slice(1).map((photo) => (
+                          <button
+                            key={photo.src}
+                            onClick={() => onOpenPhoto(indexOf(photo.src))}
+                            className="group relative aspect-[3/2] overflow-hidden rounded-xl"
+                            aria-label={`Open ${photo.alt}`}
+                          >
+                            <Image
+                              src={photo.src}
+                              alt={photo.alt}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 700px"
+                              className="abb-photo object-cover"
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  {room.photos.length > 5 && (
+                    <>
+                      {room.photos.length % 2 !== 0 ? (
+                        <>
+                          <button
+                            onClick={() => onOpenPhoto(indexOf(room.photos[0].src))}
+                            className="group relative aspect-[3/2] w-full overflow-hidden rounded-xl"
+                            aria-label={`Open ${room.photos[0].alt}`}
+                          >
+                            <Image
+                              src={room.photos[0].src}
+                              alt={room.photos[0].alt}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 700px"
+                              className="abb-photo object-cover"
+                            />
+                          </button>
+                          <div className="grid grid-cols-2 gap-4">
+                            {room.photos.slice(1).map((photo) => (
+                              <button
+                                key={photo.src}
+                                onClick={() => onOpenPhoto(indexOf(photo.src))}
+                                className="group relative aspect-[3/2] overflow-hidden rounded-xl"
+                                aria-label={`Open ${photo.alt}`}
+                              >
+                                <Image
+                                  src={photo.src}
+                                  alt={photo.alt}
+                                  fill
+                                  sizes="(max-width: 768px) 100vw, 700px"
+                                  className="abb-photo object-cover"
+                                />
+                              </button>
+                            ))}
+                          </div>
+                        </>
+                      ) : (
+                        <div className="grid grid-cols-2 gap-4">
+                          {room.photos.map((photo) => (
+                            <button
+                              key={photo.src}
+                              onClick={() => onOpenPhoto(indexOf(photo.src))}
+                              className="group relative aspect-[3/2] overflow-hidden rounded-xl"
+                              aria-label={`Open ${photo.alt}`}
+                            >
+                              <Image
+                                src={photo.src}
+                                alt={photo.alt}
+                                fill
+                                sizes="(max-width: 768px) 100vw, 700px"
+                                className="abb-photo object-cover"
+                              />
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  )}
                 </div>
               </div>
             </section>

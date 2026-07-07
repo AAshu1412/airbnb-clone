@@ -44,6 +44,9 @@ export function GalleryProvider({ children }: { children: React.ReactNode }) {
 
   const openTour = useCallback(() => {
     rememberFocus();
+    const params = new URLSearchParams(window.location.search);
+    params.set("modal", "PHOTO_TOUR_SCROLLABLE");
+    window.history.pushState(null, "", "?" + params.toString());
     setView({ kind: "tour" });
   }, []);
 
@@ -53,6 +56,16 @@ export function GalleryProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const close = useCallback(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("modal") === "PHOTO_TOUR_SCROLLABLE") {
+      params.delete("modal");
+      const search = params.toString();
+      window.history.pushState(
+        null,
+        "",
+        search ? "?" + search : window.location.pathname
+      );
+    }
     setView({ kind: "closed" });
     // Restore focus to the trigger for keyboard users.
     requestAnimationFrame(() => restoreFocusRef.current?.focus?.());
@@ -95,6 +108,23 @@ export function GalleryProvider({ children }: { children: React.ReactNode }) {
       document.body.style.overflow = original;
     };
   }, [view.kind]);
+
+  // Sync with URL query parameter ?modal=PHOTO_TOUR_SCROLLABLE
+  useEffect(() => {
+    const checkUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("modal") === "PHOTO_TOUR_SCROLLABLE") {
+        setView((prev) => (prev.kind === "closed" ? { kind: "tour" } : prev));
+      } else {
+        setView((prev) => (prev.kind === "tour" ? { kind: "closed" } : prev));
+      }
+    };
+
+    window.addEventListener("popstate", checkUrl);
+    checkUrl();
+
+    return () => window.removeEventListener("popstate", checkUrl);
+  }, []);
 
   // Global keyboard handling for overlays.
   useEffect(() => {

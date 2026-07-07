@@ -27,13 +27,9 @@ Desktop only, per the brief.
 ## Getting started
 
 ```bash
-bun install        # or: npm install
-bun run dev        # http://localhost:3000
-bun run build      # production build
+bun install
+bun dev
 ```
-
-> If your sandbox blocks network-interface enumeration, bind explicitly:
-> `bun run dev --hostname 127.0.0.1 --port 3000`
 
 ## Project structure
 
