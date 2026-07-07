@@ -10,15 +10,20 @@ export type Photo = {
  * photo tour, grouped by room. Sourced from the reference listing.
  */
 export const photos: Photo[] = [
+  { src: "/photos/lounge-4.png", alt: "Jacuzzi lounge with wicker seating and coffee table", room: "Living room 2" },
+  { src: "/photos/lounge.png", alt: "Lounge seating area beside the jacuzzi", room: "Living room 2" },
+  { src: "/photos/lounge-2.png", alt: "Private jacuzzi on the wooden deck", room: "Living room 2" },
+  { src: "/photos/bedroom.png", alt: "Bedroom with queen bed and mirror", room: "Bedroom" },
+  { src: "/photos/exterior.png", alt: "Aerial view of the building", room: "Exterior" },
   { src: "/photos/living.png", alt: "Living room with sofa and dining area", room: "Living room 1" },
-  { src: "/photos/lounge.png", alt: "Jacuzzi lounge with wicker seating", room: "Living room 2" },
+  { src: "/photos/living-1.png", alt: "Living room with TV, dining table and open kitchen", room: "Living room 1" },
+  { src: "/photos/living-2.png", alt: "Living and dining area with leather sofa", room: "Living room 1" },
+  { src: "/photos/lounge-3.png", alt: "Lounge seating with jacuzzi view", room: "Living room 2" },
   { src: "/photos/jacuzzi.png", alt: "Private jacuzzi with mood lighting", room: "Living room 2" },
   { src: "/photos/kitchen-1.png", alt: "Full kitchen with wooden cabinetry", room: "Full kitchen" },
   { src: "/photos/kitchen-2.png", alt: "Kitchen counter with cooktop and appliances", room: "Full kitchen" },
-  { src: "/photos/bedroom.png", alt: "Bedroom with queen bed and mirror", room: "Bedroom" },
   { src: "/photos/bathroom.png", alt: "Full bathroom with walk-in shower", room: "Full bathroom" },
   { src: "/photos/gym.png", alt: "Shared gym with cardio equipment", room: "Gym" },
-  { src: "/photos/exterior.png", alt: "Aerial view of the building", room: "Exterior" },
   { src: "/photos/pool-1.png", alt: "Shared swimming pool courtyard", room: "Pool" },
   { src: "/photos/pool-2.png", alt: "Poolside loungers by the water", room: "Pool" },
   { src: "/photos/pool-3.png", alt: "Swimming pool with building view", room: "Pool" },
@@ -190,6 +195,8 @@ export const reviewCategories: { label: string; icon: string; score: number }[] 
 export type Review = {
   name: string;
   avatarColor: string;
+  /** optional avatar photo; when absent, the coloured initial is shown */
+  avatar?: string;
   meta: string;
   rating: number;
   date: string;
@@ -198,52 +205,56 @@ export type Review = {
 
 export const reviews: Review[] = [
   {
-    name: "Aarav",
+    name: "Amit",
     avatarColor: "#c1846d",
+    meta: "2 months on Airbnb",
+    rating: 5,
+    date: "1 week ago",
+    body: "Very helpful and responsive team. Safe and peaceful stay. loved everything about the property.",
+  },
+  {
+    name: "Aheesh",
+    avatarColor: "#6d8fc1",
+    avatar: "/cohost/Sharath.png",
     meta: "3 years on Airbnb",
     rating: 5,
-    date: "August 2026",
-    body: "Amazing place with a lovely jacuzzi. Super clean and exactly as pictured. Aarav was a great host and very responsive.",
+    date: "2 weeks ago",
+    body: "We had a wonderful stay. The apartment was clean, comfortable, and exactly as shown in the photos. The host was very responsive and helpful throughout our stay. We would definitely recommend this place and would love to stay here again.",
   },
   {
-    name: "Priya",
-    avatarColor: "#6d8fc1",
+    name: "Samiksha",
+    avatarColor: "#8d6dc1",
+    avatar: "/cohost/Sanyukta.png",
+    meta: "8 months on Airbnb",
+    rating: 5,
+    date: "May 2026",
+    body: "the host nitish was really great help",
+  },
+  {
+    name: "Vedant",
+    avatarColor: "#8d6dc1",
+    meta: "4 years on Airbnb",
+    rating: 5,
+    date: "May 2026",
+    body: "We had an amazing stay at this property in Goa! The entire home was spotless and exceptionally well-maintained, making us feel comfortable from the moment we arrived. The cleanliness standards were truly impressive, with every corner of the house looking fresh and pristine. The host was warm, welcoming and quick to respond to every request.",
+  },
+  {
+    name: "Vaibhav S",
+    avatarColor: "#c16d9e",
+    avatar: "/cohost/Maria-Karen-Priyanka.png",
+    meta: "3 years on Airbnb",
+    rating: 5,
+    date: "May 2026",
+    body: "Great great experience living out there , can't expect more , will always look for it in the future and will recommend my friends too.",
+  },
+  {
+    name: "Mohd",
+    avatarColor: "#6dc19e",
+    avatar: "/cohost/Aman-Dev-Pahwa.png",
     meta: "5 years on Airbnb",
     rating: 5,
-    date: "August 2026",
-    body: "Absolutely stunning apartment, the private jacuzzi made our anniversary trip so special. The pool and gym were a bonus. Would definitely stay again when we are back in Goa.",
-  },
-  {
-    name: "Meredith",
-    avatarColor: "#8d6dc1",
-    meta: "Somerville, Massachusetts",
-    rating: 5,
-    date: "July 2026",
-    body: "Beautiful and comfortable stay in a great location.",
-  },
-  {
-    name: "David",
-    avatarColor: "#c16d9e",
-    meta: "Chicago, Illinois",
-    rating: 5,
-    date: "July 2026",
-    body: "The apartment was spotless and the host went above and beyond to make sure our check-in was smooth. Highly recommend for anyone visiting Candolim — you are close to everything but it still feels private and quiet.",
-  },
-  {
-    name: "Kavya",
-    avatarColor: "#6dc19e",
-    meta: "Bengaluru, India",
-    rating: 5,
-    date: "June 2026",
-    body: "Loved the interiors and the jacuzzi. Great value for the price and the neighbourhood is lovely.",
-  },
-  {
-    name: "Rahul",
-    avatarColor: "#c1a96d",
-    meta: "Mumbai, India",
-    rating: 5,
-    date: "June 2026",
-    body: "The whole booking was seamless and the flat is even nicer in person.",
+    date: "May 2026",
+    body: "Great place. Exactly as described in the listing.",
   },
 ];
 
@@ -253,8 +264,12 @@ export const similarListings: {
   price: string;
   rating: number;
 }[] = [
-  { src: "/photos/bedroom.png", title: "Serviced apartment in Candolim", price: "₹6,120 night", rating: 4.9 },
-  { src: "/photos/living.png", title: "Serviced apartment in Calangute", price: "₹5,480 night", rating: 4.88 },
-  { src: "/photos/jacuzzi.png", title: "Villa in Anjuna", price: "₹9,200 night", rating: 4.97 },
-  { src: "/photos/lounge.png", title: "Serviced apartment in Baga", price: "₹7,340 night", rating: 4.92 },
+  { src: "/more-stays/01.png", title: "Beautiful Studio with a view to die for", price: "₹23,600", rating: 4.91 },
+  { src: "/more-stays/02.png", title: "NAQAB - 1bhk with private pool", price: "₹42,218", rating: 4.95 },
+  { src: "/more-stays/03.png", title: "Greentique Luxury Flat with plunge pool, Calangute", price: "₹44,506", rating: 4.94 },
+  { src: "/more-stays/04.png", title: "The Tropical Studio | 5 mins to Beach", price: "₹22,824", rating: 4.96 },
+  { src: "/more-stays/05.png", title: "Luxury Casa Bella 1BHK with plunge pool, Calangute", price: "₹39,942", rating: 4.95 },
+  { src: "/more-stays/06.png", title: "Kanso by Earthen Window | Jacuzzi | Terrace | Pool", price: "₹45,648", rating: 5.0 },
+  { src: "/more-stays/07.png", title: "Luxury Apt | Private Pool | 6 Mins from Beach", price: "₹48,786", rating: 4.93 },
+  { src: "/more-stays/08.png", title: "Serendipity Cottage - Calm Stay in Calangute-Baga.", price: "₹22,824", rating: 4.92 },
 ];

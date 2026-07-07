@@ -11,11 +11,11 @@ export function Gallery() {
 
   return (
     <section className="relative mt-2">
-      <div className="relative grid h-[calc(66vw*0.36)] max-h-[430px] min-h-[300px] grid-cols-4 grid-rows-2 gap-2 overflow-hidden rounded-xl">
+      <div className="relative grid h-[calc(66vw*0.36)] max-h-[430px] min-h-[300px] grid-cols-4 grid-rows-2 gap-2">
         {/* Big left image spans 2 cols x 2 rows */}
         <button
           onClick={() => openLightbox(0)}
-          className="group relative col-span-2 row-span-2 overflow-hidden"
+          className="group relative col-span-2 row-span-2 overflow-hidden rounded-xl"
           aria-label={`View photo 1: ${hero[0].alt}`}
         >
           <Image
@@ -32,7 +32,7 @@ export function Gallery() {
           <button
             key={photo.src}
             onClick={() => openLightbox(i + 1)}
-            className="group relative overflow-hidden"
+            className="group relative overflow-hidden rounded-xl"
             aria-label={`View photo ${i + 2}: ${photo.alt}`}
           >
             <Image

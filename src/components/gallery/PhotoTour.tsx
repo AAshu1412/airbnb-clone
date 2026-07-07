@@ -102,8 +102,8 @@ export function PhotoTour({
               id={`tour-${room.name.replace(/\s+/g, "-").toLowerCase()}`}
               className="scroll-mt-20 border-t border-abb-border-light py-10 first:border-t-0"
             >
-              <div className="grid gap-6 md:grid-cols-[240px_1fr]">
-                <div>
+              <div className="grid gap-6 md:grid-cols-[240px_1fr] md:items-start">
+                <div className="bg-white md:sticky md:top-0 md:self-start md:py-3">
                   <h2 className="text-[22px] font-semibold text-abb-fg">
                     {room.name}
                   </h2>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { listing, reviewCategories, reviews, type Review } from "@/lib/data";
 import { Icon } from "./icons";
@@ -13,7 +14,18 @@ const catIcon = {
   tag: Icon.Tag,
 } as const;
 
-function Avatar({ name, color }: { name: string; color: string }) {
+function Avatar({ name, color, avatar }: { name: string; color: string; avatar?: string }) {
+  if (avatar) {
+    return (
+      <Image
+        src={avatar}
+        alt={name}
+        width={44}
+        height={44}
+        className="h-11 w-11 shrink-0 rounded-full object-cover"
+      />
+    );
+  }
   return (
     <span
       className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-base font-semibold text-white"
@@ -36,10 +48,14 @@ function Stars({ n }: { n: number }) {
 }
 
 function ReviewCard({ review, clamp }: { review: Review; clamp?: boolean }) {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = review.body.length > 160;
+  const showToggle = clamp && isLong;
+
   return (
     <article className="flex flex-col gap-3">
       <div className="flex items-center gap-3">
-        <Avatar name={review.name} color={review.avatarColor} />
+        <Avatar name={review.name} color={review.avatarColor} avatar={review.avatar} />
         <div>
           <p className="text-[15px] font-semibold text-abb-fg">{review.name}</p>
           <p className="text-sm text-abb-muted">{review.meta}</p>
@@ -50,9 +66,23 @@ function ReviewCard({ review, clamp }: { review: Review; clamp?: boolean }) {
         <span aria-hidden>·</span>
         <span className="text-abb-muted">{review.date}</span>
       </div>
-      <p className={`text-[15px] leading-6 text-abb-fg ${clamp ? "line-clamp-4" : ""}`}>
-        {review.body}
-      </p>
+      <div>
+        <p
+          className={`text-[15px] leading-6 text-abb-fg ${
+            showToggle && !expanded ? "line-clamp-3" : ""
+          }`}
+        >
+          {review.body}
+        </p>
+        {showToggle && (
+          <button
+            onClick={() => setExpanded((v) => !v)}
+            className="mt-1 text-[15px] font-semibold text-abb-fg underline underline-offset-2 hover:text-black cursor-pointer"
+          >
+            {expanded ? "Show less" : "Show more"}
+          </button>
+        )}
+      </div>
     </article>
   );
 }
@@ -64,14 +94,28 @@ export function Reviews() {
     <section id="reviews" className="border-b border-abb-border-light py-12">
       {/* Guest favourite banner */}
       <div className="flex flex-col items-center py-6 text-center">
-        <div className="flex items-center justify-center gap-2 text-abb-fg">
-          <span className="scale-x-[-1] text-abb-fg">
-            <LaurelLeft />
-          </span>
-          <span className="text-[64px] font-semibold leading-none tracking-tight">
+        <div className="flex items-center justify-center gap-1 text-abb-fg">
+          <Image
+            src="/rating-left.png"
+            alt=""
+            width={240}
+            height={365}
+            className="h-[110px] w-auto select-none"
+            aria-hidden
+            priority
+          />
+          <span className="text-[90px] font-semibold leading-none tracking-tight">
             {listing.rating}
           </span>
-          <LaurelLeft />
+          <Image
+            src="/rating-right.png"
+            alt=""
+            width={240}
+            height={365}
+            className="h-[110px] w-auto select-none"
+            aria-hidden
+            priority
+          />
         </div>
         <h2 className="mt-4 text-2xl font-semibold text-abb-fg">
           Guest favourite
@@ -140,7 +184,7 @@ export function Reviews() {
           ].map((filter) => (
             <button
               key={filter.label}
-              className="flex shrink-0 items-center gap-2 rounded-full border border-neutral-200 bg-white px-3.5 py-2 text-[13px] font-semibold text-abb-fg hover:border-black transition-colors cursor-pointer"
+              className="flex shrink-0 items-center gap-2 rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-[13px] font-semibold text-abb-fg hover:border-black transition-colors cursor-pointer"
             >
               <span>{filter.icon}</span>
               <span>{filter.label}</span>
@@ -166,14 +210,6 @@ export function Reviews() {
 
       {open && <ReviewsModal onClose={() => setOpen(false)} />}
     </section>
-  );
-}
-
-function LaurelLeft() {
-  return (
-    <svg width="44" height="72" viewBox="0 0 44 72" fill="currentColor" aria-hidden>
-      <path d="M28 2c-6 4-10 10-11 18-1 8 1 15 5 22 4 7 9 12 15 16-4-6-6-12-6-19 0-2 0-4 .3-6-3 1-6 1-9-1 3-1 5-2 7-4 .5-2 1-4 2-6-3 2-6 2-9 1 3-2 5-4 7-7 .4-2 1-3 2-5-3 2-6 3-9 2 3-2 6-5 8-9 .4-1 .7-2 1-3z" />
-    </svg>
   );
 }
 
