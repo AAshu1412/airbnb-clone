@@ -16,7 +16,7 @@ import { HostSection } from "@/components/HostSection";
 import { ThingsToKnow } from "@/components/ThingsToKnow";
 import { SimilarListings } from "@/components/SimilarListings";
 import { Icon } from "@/components/icons";
-import { listing, photos } from "@/lib/data";
+import { listing } from "@/lib/data";
 
 export default function Home() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -190,13 +190,13 @@ export default function Home() {
               </h2>
               <div className="grid max-w-md grid-cols-2 gap-4">
                 {[
-                  { photo: photos[2], title: "Bedroom", sub: "1 queen bed" },
-                  { photo: photos[0], title: "Living room", sub: "1 sofa bed" },
+                  { src: "/photos/bedroom.png", title: "Bedroom", sub: "1 queen bed" },
+                  { src: "/photos/living.png", title: "Living room", sub: "1 sofa bed" },
                 ].map((room) => (
                   <div key={room.title}>
                     <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-abb-border-light">
                       <Image
-                        src={room.photo.src}
+                        src={room.src}
                         alt={room.title}
                         fill
                         sizes="240px"
